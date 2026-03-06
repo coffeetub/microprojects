@@ -1,5 +1,6 @@
 #include "framebuffer.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 static uint32_t *framebuffer = NULL;
 static int width = 0;
@@ -10,11 +11,11 @@ void init_frame(int w , int h , uint32_t bg){
     width = w;
     height = h;
     bg_colour = bg;
-    framebuffer = (*uint32_t)malloc(sizeof(uint32_t) * w * h);
+    framebuffer = (uint32_t*)malloc(sizeof(uint32_t) * w * h);
 }
 
 void clear_frame(){
-    for(int i = 0 ; i<w*h ; i++){
+    for(int i = 0 ; i<width*height ; i++){
         framebuffer[i] = bg_colour;
     }
 }
@@ -46,6 +47,6 @@ void set_height(int h){
 }
 
 void set_bgcolor(uint32_t colour){
-    bgcolour = colour;
+    bg_colour = colour;
 }
 

@@ -11,7 +11,6 @@ int get_width();
 int get_height();
 void set_width(int w);
 void set_height(int h);
-//void update_frame();
 void set_bgcolor(uint32_t colour);
 
 #endif
